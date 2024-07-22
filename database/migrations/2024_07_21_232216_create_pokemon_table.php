@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('pokemon', function (Blueprint $table) {
             $table->id();
+            $table->integer('pokedex');
+            $table->string('name');
+            $table->string('sprite');
             $table->timestamps();
+
+            $table->index('pokedex');
         });
     }
 

@@ -1,6 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PokemonController;
+use App\Http\Controllers\AppController;
 
-Route::get('/', [PokemonController::class, 'index']);
+Route::get('/', [AppController::class, 'index']);
