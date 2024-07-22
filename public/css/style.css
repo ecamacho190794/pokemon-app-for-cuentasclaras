@@ -1,0 +1,19 @@
+/* Fonts */
+@font-face {
+    font-family: "Pokemon";
+    src: url("/fonts/PokemonSolid.ttf");
+}
+
+/* Main styles */
+.text-title {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-family: "Pokemon";
+}
+
+/* Remove some bootstrap effects */
+.navbar-toggler, .navbar-toggler:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
