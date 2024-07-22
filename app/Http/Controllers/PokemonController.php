@@ -11,6 +11,22 @@ use App\Models\Pokemon;
 class PokemonController extends Controller
 {
     const POKEMON_API = 'https://pokeapi.co/api/v2/pokemon/';
+    const CHARACTERISTICS_API = 'https://pokeapi.co/api/v2/characteristic/';
+
+    function show($pokedex) {
+        $characteristics = $this->find_characteristics_from_api($pokedex);
+        if ($characteristics == false) {
+            return response()->json([
+                'status' => 404,
+                'errors' => ['pokedex' => ['El Pokémon con número de pokédex ' . $pokedex . ' no existe']]
+            ]);
+        }
+
+        return response()->json([
+            'status' => '200',
+            'characteristics' => $characteristics
+        ]);
+    }
 
     function create(Request $request) {
         $validator = Validator::make($request->all(), [
@@ -40,13 +56,11 @@ class PokemonController extends Controller
                 'errors' => ['pokedex' => ['El Pokémon con número de pokédex ' . $pokedex . ' no existe']]
             ]);
         }
-
-        $response_data = [
+        
+        return response()->json([
             'status' => '200',
             'pokemon_name' => $pokemon['name']
-        ];
-        
-        return response()->json($response_data);
+        ]);
     }
 
     function store(Request $request) {
@@ -64,26 +78,45 @@ class PokemonController extends Controller
     }
 
     private function find_from_api($pokedex) {
-        if (Cache::has('pokemon_name_' . $pokedex)) {
-            $pokemon = [
-                'name' => Cache::get('pokemon_name_' . $pokedex),
-                'sprite' => Cache::get('pokemon_sprite_' . $pokedex)
-            ];
+        if (Cache::has('pokemon_' . $pokedex)) {
+            $pokemon = Cache::get('pokemon_' . $pokedex);
         } else {
             $response = Http::get(self::POKEMON_API . $pokedex);
             if ($response == "Not Found") {
                 return false;
             }
 
-            $pokemon = $response->json();
+            $pokemon_json = $response->json();
             $pokemon = [
-                'name' => ucwords($pokemon['name']),
-                'sprite' => $pokemon['sprites']['front_default']
+                'name' => ucwords($pokemon_json['name']),
+                'sprite' => $pokemon_json['sprites']['front_default']
             ];
-            Cache::put('pokemon_name_' . $pokedex, ucwords($pokemon['name']), $seconds = 120);
-            Cache::put('pokemon_sprite_' . $pokedex, $pokemon['sprite'], $seconds = 120);
+            Cache::put('pokemon_' . $pokedex, $pokemon);
         }
 
         return $pokemon;
+    }
+
+    private function find_characteristics_from_api($pokedex) {
+        if (Cache::has('characteristics_' . $pokedex)) {
+            $characteristics = Cache::get('characteristics_' . $pokedex);
+        } else {
+            $response = Http::get(self::CHARACTERISTICS_API . $pokedex);
+            if ($response == "Not Found") {
+                return false;
+            }
+
+            $characteristics_json = $response->json();
+            $characteristics = [
+                'descriptions' => $characteristics_json['descriptions'],
+                'gene_modulo' => $characteristics_json['gene_modulo'],
+                'highest_stat' => str_replace('-', ' ', $characteristics_json['highest_stat']),
+                'possible_values' => $characteristics_json['possible_values'],
+            ];
+
+            Cache::put('characteristics_' . $pokedex, $characteristics);
+        }
+
+        return $characteristics;
     }
 }

@@ -16,10 +16,10 @@ $(document).ready(function() {
                 $("#pokemon-" + pokedex + " .values").text(response.possible_values);
             },
             error: function() {
-                $("#pokemon-" + pokedex + " .desc").addClass("text-danger").text("¡Ha habido un error al cargar los datos!");
-                $("#pokemon-" + pokedex + " .gen").addClass("text-danger").text("¡Ha habido un error al cargar los datos!");
-                $("#pokemon-" + pokedex + " .stat").addClass("text-danger").text("¡Ha habido un error al cargar los datos!");
-                $("#pokemon-" + pokedex + " .values").addClass("text-danger").text("¡Ha habido un error al cargar los datos!");
+                $("#pokemon-" + pokedex + " .desc").addClass("text-danger").text("¡No existe información en el API!");
+                $("#pokemon-" + pokedex + " .gen").addClass("text-danger").text("¡No existe información en el API!");
+                $("#pokemon-" + pokedex + " .stat").addClass("text-danger").text("¡No existe información en el API!");
+                $("#pokemon-" + pokedex + " .values").addClass("text-danger").text("¡No existe información en el API!");
                 console.log("Error");
             }
         })
