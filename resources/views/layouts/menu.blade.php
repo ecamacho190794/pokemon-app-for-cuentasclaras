@@ -13,7 +13,7 @@
             <div class="offcanvas-body d-flex flex-column">
                 <ul class="navbar-nav fs-5 justify-content-evenly">
                     <li class="nav-item p-3 py-md-1"><a class="nav-link" href="/">App</a></li>
-                    <li class="nav-item p-3 py-md-1"><a class="nav-link" href="/">Añadir nuevo pokémon</a></li>
+                    <li class="nav-item p-3 py-md-1"><a class="nav-link" href="/add">Añadir nuevo pokémon</a></li>
                     <li class="nav-item p-3 py-md-1"><a class="nav-link" href="/contact">Contacto</a></li>
                 </ul>
             </div>

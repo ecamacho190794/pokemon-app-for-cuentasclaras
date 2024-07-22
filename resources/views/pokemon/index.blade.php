@@ -4,6 +4,15 @@
 
 @section('content')
 
-<p>Here goes my app!</p>
+<section id="pokémon-list" class="row">
+    @include('pokemon.card')
+    @include('pokemon.card')
+    @include('pokemon.card')
+    @include('pokemon.card')
+    @include('pokemon.card')
+    @include('pokemon.card')
+    @include('pokemon.card')
+    @include('pokemon.card')
+</section>
 
 @endsection

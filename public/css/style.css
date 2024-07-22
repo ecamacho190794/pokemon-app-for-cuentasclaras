@@ -6,9 +6,37 @@
 
 /* Main styles */
 .text-title {
-    color: #f0f0f0;
+    color: #FFCB05;
     text-decoration: none;
     font-family: "Pokemon";
+}
+
+.pokemon-list-card {
+    background-color: #3B4CCA;
+    border-radius: 10px;
+    border-color: #5f5f5f;
+    border-style: solid;
+    border-width: 3px;
+}
+
+.pokemon-list-card-info {
+    background: #1e1e1e;
+    color: #F5F5F5;
+}
+
+.btn-pokemon-card {
+    margin-bottom: 20px;
+}
+
+#lateral-menu .nav-link {
+    color: #F5F5F5;
+}
+
+main {
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 /* Remove some bootstrap effects */
