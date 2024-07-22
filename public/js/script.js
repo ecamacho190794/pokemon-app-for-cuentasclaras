@@ -10,7 +10,7 @@ $(document).ready(function() {
             success: function(response) {
                 var characteristics = response.characteristics;
                 var description = characteristics.descriptions.find(function(desc) {
-                    return desc.language.name == 'es';
+                    return desc.language.name == "es";
                 });
                 $("#pokemon-" + pokedex + " .desc").text(description.description);
                 $("#pokemon-" + pokedex + " .gen").text(characteristics.gene_modulo);
