@@ -54,7 +54,7 @@ class PokemonController extends Controller
             return response()->json([
                 'status' => 404,
                 'errors' => ['pokedex' => ['El Pokémon con número de pokédex ' . $pokedex . ' no existe']]
-            ], 400);
+            ], 404);
         }
         
         return response()->json([
@@ -82,7 +82,7 @@ class PokemonController extends Controller
             $pokemon = Cache::get('pokemon_' . $pokedex);
         } else {
             $response = Http::get(self::POKEMON_API . $pokedex);
-            if ($response == "Not Found") {
+            if ($response == 'Not Found') {
                 return false;
             }
 
@@ -102,7 +102,7 @@ class PokemonController extends Controller
             $characteristics = Cache::get('characteristics_' . $pokedex);
         } else {
             $response = Http::get(self::CHARACTERISTICS_API . $pokedex);
-            if ($response == "Not Found") {
+            if ($response == 'Not Found') {
                 return false;
             }
 

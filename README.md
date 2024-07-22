@@ -3,7 +3,7 @@
 
 Welcome to Pokemon App! This is an app designed to show details about specific pokemons using the public API (https://pokeapi.co)
 
-## Instalation
+## Installation
 
 - Clone this repository and enter the folder.
 - Install dependencies with `composer install`.
@@ -12,3 +12,8 @@ Welcome to Pokemon App! This is an app designed to show details about specific p
 - Seed the database with `php artisan db:seed`.
 - Set your encryption key up with `php artisan key:generate`.
 - Execute the app with `php artisan serve`.
+
+
+## Run PHPUnit test
+
+This challenge has unit tests. To execute them just run `php artisan test`
