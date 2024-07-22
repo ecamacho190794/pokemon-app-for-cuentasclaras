@@ -37,6 +37,10 @@
     object-fit: contain;
 }
 
+#new-pokemon {
+    width: 50%;
+}
+
 .loading-overlay {
     position: absolute;
     top: 0;
