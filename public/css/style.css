@@ -32,6 +32,10 @@
     color: #F5F5F5;
 }
 
+.pokemon-list-card img {
+    object-fit: contain;
+}
+
 main {
     padding-left: 80px;
     padding-right: 80px;

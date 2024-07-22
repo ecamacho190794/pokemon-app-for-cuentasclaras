@@ -5,14 +5,9 @@
 @section('content')
 
 <section id="pokémon-list" class="row">
-    @include('pokemon.card')
-    @include('pokemon.card')
-    @include('pokemon.card')
-    @include('pokemon.card')
-    @include('pokemon.card')
-    @include('pokemon.card')
-    @include('pokemon.card')
-    @include('pokemon.card')
+    @foreach($pokemons as $pokemon)
+        @include('pokemon.card', ['pokemon' => $pokemon])
+    @endforeach
 </section>
 
 @endsection
