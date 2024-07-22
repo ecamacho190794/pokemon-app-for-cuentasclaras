@@ -10,7 +10,7 @@
         <form id="new-pokemon">
             <div class="form-group">
                 <label for="pokedex">*Número de Pokédex</label>
-                <input type="number" class="form-control" id="pokedex" placeholder="25" required style="font-size: 25px;">
+                <input type="number" class="form-control" id="pokedex" placeholder="25" min="1" required style="font-size: 25px;">
                 <small id="pokedex-help" class="form-text text-muted">Probablemente yo tampoco sé qué Pokémon es.</small>
             </div>
             <div class="d-flex justify-content-center">

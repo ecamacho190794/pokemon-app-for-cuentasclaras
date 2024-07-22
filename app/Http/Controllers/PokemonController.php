@@ -54,7 +54,7 @@ class PokemonController extends Controller
             return response()->json([
                 'status' => 404,
                 'errors' => ['pokedex' => ['El Pokémon con número de pokédex ' . $pokedex . ' no existe']]
-            ]);
+            ], 400);
         }
         
         return response()->json([

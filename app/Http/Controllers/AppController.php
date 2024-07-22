@@ -15,4 +15,8 @@ class AppController extends Controller
     function create() {
         return view('pokemon.create');
     }
+
+    function contact() {
+        return view('pokemon.contact');
+    }
 }
